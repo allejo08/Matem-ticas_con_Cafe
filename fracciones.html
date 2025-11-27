@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fracciones en la Producción de Café</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .serif { font-family: 'Lora', serif; }
+        .math-font { font-family: 'Times New Roman', serif; font-style: italic; }
+        
+        /* Fracciones */
+        .frac { display: inline-block; position: relative; vertical-align: middle; letter-spacing: 0.001em; text-align: center; font-size: 1.1em; }
+        .frac > span { display: block; padding: 0.1em; }
+        .frac span.bottom { border-top: thin solid black; }
+        .frac span.symbol { display: none; } 
+
+        .print-break { page-break-before: always; }
+        .correct-answer { background-color: #dcfce7; border-color: #22c55e; }
+        .wrong-answer { background-color: #fee2e2; border-color: #ef4444; }
+        
+        @media print { .no-print { display: none; } }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+    <!-- HEADER -->
+    <header class="bg-amber-900 text-white pt-10 pb-10 px-4 shadow-xl">
+        <div class="max-w-5xl mx-auto text-center">
+            <img src="https://res.cloudinary.com/dgqpeth4f/image/upload/v1748483304/logo_aaa_hvqghu.png" alt="Logo CafeLab" class="mx-auto w-40 md:w-56 mb-6 bg-white p-3 rounded-xl shadow-lg">
+            <h1 class="text-3xl md:text-5xl font-bold mb-3">Lectura Crítica y Fracciones</h1>
+            <h2 class="text-xl font-light text-amber-200">Aplicación en la Industria del Café</h2>
+        </div>
+    </header>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="max-w-5xl mx-auto px-4 py-8">
+        <div class="bg-white p-6 rounded-2xl shadow-md border-l-8 border-amber-600">
+            <h3 class="text-xl font-bold text-amber-900 mb-2">👁️ El Ojo Crítico Matemático</h3>
+            <p class="text-gray-700 leading-relaxed">
+                En matemáticas, "leer críticamente" significa no aplicar fórmulas a ciegas. Antes de sumar, debes preguntarte: 
+                <em>¿Son del mismo lote (denominador)?</em> Antes de multiplicar, debes entender: <em>¿Estoy ampliando la producción o reduciéndola?</em>.
+                A continuación, estudiaremos las 6 propiedades fundamentales aplicadas a nuestro negocio cafetero.
+            </p>
+        </div>
+    </section>
+
+    <!-- TEORÍA AMPLIADA -->
+    <section class="max-w-5xl mx-auto px-4 mb-12 grid md:grid-cols-2 gap-8">
+        
+        <!-- PROPIEDAD 1 -->
+        <div class="bg-white p-6 rounded-xl shadow border border-stone-200">
+            <div class="flex justify-between items-start border-b pb-2 mb-4">
+                <h4 class="font-bold text-lg text-blue-800">1. Multiplicación (Escalas)</h4>
+                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-bold">Producción</span>
+            </div>
+            <div class="text-center text-xl mb-4 bg-stone-50 p-2 rounded math-font">
+                <div class="frac"><span class="top">a</span><span class="bottom">b</span></div> · 
+                <div class="frac"><span class="top">c</span><span class="bottom">d</span></div> = 
+                <div class="frac"><span class="top">ac</span><span class="bottom">bd</span></div>
+            </div>
+            <p class="text-sm text-gray-700 mb-3">
+                <strong>Lectura Crítica:</strong> La multiplicación es "lineal". Numerador con numerador, denominador con denominador. Se usa cuando aplicamos un factor a una cantidad existente.
+            </p>
+            <div class="bg-blue-50 p-3 rounded text-sm text-blue-900">
+                <strong>☕ Ejemplo:</strong> Si una finca produce <span class="font-bold">3/4</span> de tonelada y vendemos <span class="font-bold">1/2</span> de esa producción.<br>
+                Cálculo: (3·1) / (4·2) = <span class="font-bold">3/8</span> de tonelada vendida.
+            </div>
+        </div>
+
+        <!-- PROPIEDAD 2 -->
+        <div class="bg-white p-6 rounded-xl shadow border border-stone-200">
+            <div class="flex justify-between items-start border-b pb-2 mb-4">
+                <h4 class="font-bold text-lg text-blue-800">2. División (Empaque)</h4>
+                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-bold">Distribución</span>
+            </div>
+            <div class="text-center text-xl mb-4 bg-stone-50 p-2 rounded math-font">
+                <div class="frac"><span class="top">a</span><span class="bottom">b</span></div> ÷ 
+                <div class="frac"><span class="top">c</span><span class="bottom">d</span></div> = 
+                <div class="frac"><span class="top">a</span><span class="bottom">b</span></div> · 
+                <div class="frac"><span class="top">d</span><span class="bottom">c</span></div>
+            </div>
+            <p class="text-sm text-gray-700 mb-3">
+                <strong>Lectura Crítica:</strong> Dividir por una fracción es lo mismo que multiplicar por su inverso ("darle la vuelta"). Se usa para repartir cantidades.
+            </p>
+            <div class="bg-blue-50 p-3 rounded text-sm text-blue-900">
+                <strong>☕ Ejemplo:</strong> Empacar <span class="font-bold">5/2</span> kg de café en bolsas de <span class="font-bold">1/4</span> kg.<br>
+                Cálculo: 5/2 · 4/1 = 20/2 = <span class="font-bold">10 bolsas</span>.
+            </div>
+        </div>
+
+        <!-- PROPIEDAD 3 -->
+        <div class="bg-white p-6 rounded-xl shadow border border-stone-200">
+            <div class="flex justify-between items-start border-b pb-2 mb-4">
+                <h4 class="font-bold text-lg text-green-800">3. Suma Homogénea</h4>
+                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-bold">Acopio</span>
+            </div>
+            <div class="text-center text-xl mb-4 bg-stone-50 p-2 rounded math-font">
+                <div class="frac"><span class="top">a</span><span class="bottom">c</span></div> + 
+                <div class="frac"><span class="top">b</span><span class="bottom">c</span></div> = 
+                <div class="frac"><span class="top">a + b</span><span class="bottom">c</span></div>
+            </div>
+            <p class="text-sm text-gray-700 mb-3">
+                <strong>Lectura Crítica:</strong> ¡Cuidado! Solo puedes sumar los números de arriba si los de abajo (el tipo de unidad) son IDÉNTICOS.
+            </p>
+            <div class="bg-green-50 p-3 rounded text-sm text-green-900">
+                <strong>☕ Ejemplo:</strong> Recolectas <span class="font-bold">2/8</span> de lote en la mañana y <span class="font-bold">3/8</span> en la tarde.<br>
+                Cálculo: (2+3)/8 = <span class="font-bold">5/8</span> del lote.
+            </div>
+        </div>
+
+        <!-- PROPIEDAD 4 -->
+        <div class="bg-white p-6 rounded-xl shadow border border-stone-200">
+            <div class="flex justify-between items-start border-b pb-2 mb-4">
+                <h4 class="font-bold text-lg text-green-800">4. Suma Heterogénea</h4>
+                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-bold">Mezclas (Blend)</span>
+            </div>
+            <div class="text-center text-xl mb-4 bg-stone-50 p-2 rounded math-font">
+                <div class="frac"><span class="top">a</span><span class="bottom">b</span></div> + 
+                <div class="frac"><span class="top">c</span><span class="bottom">d</span></div> = 
+                <div class="frac"><span class="top">ad + bc</span><span class="bottom">bd</span></div>
+            </div>
+            <p class="text-sm text-gray-700 mb-3">
+                <strong>Lectura Crítica:</strong> Si los denominadores son distintos, PROHIBIDO sumar directo. Usa la "Carita Feliz" (Multiplicación cruzada).
+            </p>
+            <div class="bg-green-50 p-3 rounded text-sm text-green-900">
+                <strong>☕ Ejemplo:</strong> Mezclar <span class="font-bold">1/2</span> saco de Borbón con <span class="font-bold">1/3</span> saco de Caturra.<br>
+                Cálculo: (1·3 + 2·1) / (2·3) = <span class="font-bold">5/6</span> de saco mixto.
+            </div>
+        </div>
+
+        <!-- PROPIEDAD 5 -->
+        <div class="bg-white p-6 rounded-xl shadow border border-stone-200">
+            <div class="flex justify-between items-start border-b pb-2 mb-4">
+                <h4 class="font-bold text-lg text-amber-800">5. Simplificación</h4>
+                <span class="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full font-bold">Calidad</span>
+            </div>
+            <div class="text-center text-xl mb-4 bg-stone-50 p-2 rounded math-font">
+                <div class="frac"><span class="top">ac</span><span class="bottom">bc</span></div> = 
+                <div class="frac"><span class="top">a</span><span class="bottom">b</span></div>
+            </div>
+            <p class="text-sm text-gray-700 mb-3">
+                <strong>Lectura Crítica:</strong> En los informes comerciales, siempre se presentan los números en su forma más simple. Elimina factores comunes.
+            </p>
+            <div class="bg-amber-50 p-3 rounded text-sm text-amber-900">
+                <strong>☕ Ejemplo:</strong> De 100 granos, 20 tienen defectos (<span class="font-bold">20/100</span>).<br>
+                Reporte: Dividimos ambos por 20 -> <span class="font-bold">1/5</span> de defecto.
+            </div>
+        </div>
+
+        <!-- PROPIEDAD 6 -->
+        <div class="bg-white p-6 rounded-xl shadow border border-stone-200">
+            <div class="flex justify-between items-start border-b pb-2 mb-4">
+                <h4 class="font-bold text-lg text-amber-800">6. Igualdad (Proporción)</h4>
+                <span class="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full font-bold">Equivalencia</span>
+            </div>
+            <div class="text-center text-xl mb-4 bg-stone-50 p-2 rounded math-font">
+                <div class="frac"><span class="top">a</span><span class="bottom">b</span></div> = 
+                <div class="frac"><span class="top">c</span><span class="bottom">d</span></div> 
+                <span class="text-sm mx-2">sí y solo sí</span> 
+                ad = bc
+            </div>
+            <p class="text-sm text-gray-700 mb-3">
+                <strong>Lectura Crítica:</strong> Para verificar si dos lotes tienen la misma proporción de calidad, multiplicamos en cruz. Si da igual, son equivalentes.
+            </p>
+            <div class="bg-amber-50 p-3 rounded text-sm text-amber-900">
+                <strong>☕ Ejemplo:</strong> ¿Es <span class="font-bold">2/3</span> de calidad igual a <span class="font-bold">4/6</span>?<br>
+                Verificación: 2·6 = 12 y 3·4 = 12. <span class="font-bold">¡Sí son equivalentes!</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- EXAMEN -->
+    <section class="max-w-5xl mx-auto px-4 py-8 mb-12 print-break">
+        <div class="border-2 border-stone-300 p-6 md:p-8 rounded-xl bg-white relative">
+            
+            <div class="text-center mb-8 border-b-2 border-stone-100 pb-4">
+                <h2 class="text-3xl font-bold text-amber-900">📝 Examen de Certificación</h2>
+                <p class="text-gray-500 mb-6">Demuestra tu lectura crítica resolviendo estos problemas.</p>
+                
+                <div class="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                    <div>
+                        <label class="block text-left text-sm font-bold text-gray-700">Nombre del Caficultor:</label>
+                        <input type="text" id="studentName" class="w-full p-2 border rounded outline-none focus:border-amber-500">
+                    </div>
+                    <div>
+                        <label class="block text-left text-sm font-bold text-gray-700">Finca / Grado:</label>
+                        <input type="text" id="studentGrade" class="w-full p-2 border rounded outline-none focus:border-amber-500">
+                    </div>
+                </div>
+            </div>
+
+            <form id="quizForm">
+                <div class="grid md:grid-cols-2 gap-6">
+                    
+                    <!-- NIVEL 1 -->
+                    <div class="col-span-2 bg-green-100 p-2 rounded text-green-800 font-bold text-xs uppercase tracking-widest">Nivel 1: Conceptos Básicos</div>
+
+                    <div class="question-box p-4 border rounded hover:shadow-md transition" id="q1-box">
+                        <p class="font-bold mb-3 text-stone-800">1. Lectura Crítica: Si vendes <span class="frac"><span class="top">1</span><span class="bottom">2</span></span> hoy y <span class="frac"><span class="top">1</span><span class="bottom">3</span></span> mañana. ¿Por qué NO puedes sumar 1+1 y 2+3 directamente?</p>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q1" value="a" class="mt-1 mr-2"> a) Porque los días son diferentes.</label>
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q1" value="b" class="mt-1 mr-2"> b) Porque los denominadores son diferentes (unidades distintas), requiere Suma Heterogénea.</label>
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q1" value="c" class="mt-1 mr-2"> c) Sí se puede sumar directo.</label>
+                        </div>
+                        <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
+                    </div>
+
+                    <div class="question-box p-4 border rounded hover:shadow-md transition" id="q2-box">
+                        <p class="font-bold mb-3 text-stone-800">2. Un tanque tiene <span class="frac"><span class="top">3</span><span class="bottom">8</span></span> de agua y agregas <span class="frac"><span class="top">2</span><span class="bottom">8</span></span>. ¿Qué propiedad aplica?</p>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q2" value="a" class="mt-1 mr-2"> a) Suma Homogénea (Mismo denominador, se mantiene el 8).</label>
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q2" value="b" class="mt-1 mr-2"> b) Suma Heterogénea (Se multiplica cruzado).</label>
+                        </div>
+                        <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
+                    </div>
+
+                    <!-- NIVEL 2 -->
+                    <div class="col-span-2 bg-amber-100 p-2 rounded text-amber-800 font-bold text-xs uppercase tracking-widest mt-4">Nivel 2: Procesamiento</div>
+
+                    <div class="question-box p-4 border rounded hover:shadow-md transition" id="q3-box">
+                        <p class="font-bold mb-3 text-stone-800">3. Empaque: Tienes <span class="frac"><span class="top">5</span><span class="bottom">2</span></span> kg de café. ¿Cuántas bolsas de <span class="frac"><span class="top">1</span><span class="bottom">2</span></span> kg salen?</p>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q3" value="a" class="mt-1 mr-2"> a) 10 bolsas</label>
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q3" value="b" class="mt-1 mr-2"> b) 2.5 bolsas</label>
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q3" value="c" class="mt-1 mr-2"> c) 5 bolsas (5/2 ÷ 1/2 = 10/2)</label>
+                        </div>
+                        <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
+                    </div>
+
+                    <div class="question-box p-4 border rounded hover:shadow-md transition" id="q4-box">
+                        <p class="font-bold mb-3 text-stone-800">4. Escalar Receta: Necesitas <span class="frac"><span class="top">3</span><span class="bottom">4</span></span> de libra. Para hacer el doble (<span class="font-bold">x2</span>), ¿qué operación realizas?</p>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q4" value="a" class="mt-1 mr-2"> a) Sumar 2 al numerador.</label>
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q4" value="b" class="mt-1 mr-2"> b) Multiplicación (3/4 · 2/1 = 6/4).</label>
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q4" value="c" class="mt-1 mr-2"> c) División.</label>
+                        </div>
+                        <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
+                    </div>
+
+                    <div class="question-box p-4 border rounded hover:shadow-md transition" id="q5-box">
+                        <p class="font-bold mb-3 text-stone-800">5. Reporte de Calidad: <span class="frac"><span class="top">20</span><span class="bottom">100</span></span> de defecto. ¿Cuál es la forma simplificada correcta?</p>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q5" value="a" class="mt-1 mr-2"> a) 1/5</label>
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q5" value="b" class="mt-1 mr-2"> b) 1/4</label>
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q5" value="c" class="mt-1 mr-2"> c) 2/5</label>
+                        </div>
+                        <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
+                    </div>
+
+                    <!-- NIVEL 3 -->
+                    <div class="col-span-2 bg-red-100 p-2 rounded text-red-800 font-bold text-xs uppercase tracking-widest mt-4">Nivel 3: Análisis Avanzado</div>
+
+                    <div class="question-box p-4 border rounded hover:shadow-md transition" id="q6-box">
+                        <p class="font-bold mb-3 text-stone-800">6. Verificación: El cliente dice que el lote A (<span class="frac"><span class="top">2</span><span class="bottom">3</span></span> calidad) es igual al lote B (<span class="frac"><span class="top">4</span><span class="bottom">6</span></span>). ¿Es cierto?</p>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q6" value="a" class="mt-1 mr-2"> a) No, el lote B es más grande.</label>
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q6" value="b" class="mt-1 mr-2"> b) Sí, porque al multiplicar cruzado 2x6 = 3x4 (12=12).</label>
+                        </div>
+                        <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
+                    </div>
+
+                    <div class="question-box p-4 border rounded hover:shadow-md transition" id="q7-box">
+                        <p class="font-bold mb-3 text-stone-800">7. ¿Cuál es la fórmula correcta para mezclar variedades distintas (Suma Heterogénea)?</p>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q7" value="a" class="mt-1 mr-2"> a) <span class="font-mono">(ad + bc) / bd</span></label>
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q7" value="b" class="mt-1 mr-2"> b) <span class="font-mono">(a + c) / (b + d)</span></label>
+                        </div>
+                        <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
+                    </div>
+
+                    <!-- NUEVA PREGUNTA 8 DE LECTURA CRÍTICA (SOLO TEXTO) -->
+                    <div class="question-box p-4 border-l-4 border-amber-500 rounded bg-amber-50" id="q8-box">
+                        <div class="mb-3">
+                            <h5 class="font-bold text-amber-900 text-sm mb-1 uppercase">Ejercicio de Lectura Crítica:</h5>
+                            <p class="text-stone-800 italic text-sm border-l-2 border-stone-300 pl-3 mb-3">
+                                "En el negocio del café, las fracciones son el lenguaje del dinero. Decir 1/10 de merma no es solo una resta, es dinero perdido. Decir 3/4 de almendra sana es garantía de pago justo. Quien no entiende la fracción, no controla su rentabilidad."
+                            </p>
+                            <p class="font-bold text-stone-800 text-sm">Pregunta: Según el texto, ¿cuál es la verdadera función de las fracciones en este contexto?</p>
+                        </div>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q8" value="a" class="mt-1 mr-2"> a) Hacer operaciones matemáticas en el cuaderno.</label>
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q8" value="b" class="mt-1 mr-2"> b) Controlar la rentabilidad y calidad del negocio.</label>
+                            <label class="flex items-start cursor-pointer"><input type="radio" name="q8" value="c" class="mt-1 mr-2"> c) Dividir los sacos en partes iguales.</label>
+                        </div>
+                        <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
+                    </div>
+
+                    <!-- ABIERTAS -->
+                    <div class="col-span-2 question-box p-4 border rounded hover:shadow-md transition" id="q9-box">
+                        <p class="font-bold mb-3 text-stone-800">9. Problema Abierto: Tienes 75 sacos buenos de 100 totales (<span class="frac"><span class="top">75</span><span class="bottom">100</span></span>). Escribe la fracción simplificada (Ej: 1/2):</p>
+                        <input type="text" id="q9_input" class="w-full border-b p-2 outline-none font-mono focus:border-amber-500" placeholder="Tu respuesta...">
+                        <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
+                    </div>
+
+                    <div class="col-span-2 question-box p-4 border rounded bg-slate-50" id="q10-box">
+                        <p class="font-bold mb-3 text-stone-800">10. Selección Múltiple: Marca las DOS situaciones donde el denominador del resultado cambia respecto a los originales:</p>
+                        <div class="grid grid-cols-2 gap-2 text-sm text-gray-600">
+                            <label class="flex items-center cursor-pointer"><input type="checkbox" name="q10" value="a" class="mr-2"> a) Suma Homogénea</label>
+                            <label class="flex items-center cursor-pointer"><input type="checkbox" name="q10" value="b" class="mr-2"> b) Multiplicación (b·d)</label>
+                            <label class="flex items-center cursor-pointer"><input type="checkbox" name="q10" value="c" class="mr-2"> c) Suma Heterogénea (b·d)</label>
+                        </div>
+                        <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
+                    </div>
+                </div>
+
+                <div class="mt-10 text-center flex gap-4 justify-center no-print">
+                    <button type="button" onclick="calculateScore()" class="bg-amber-700 text-white font-bold py-3 px-10 rounded-full shadow-lg hover:bg-amber-800 transition-all transform hover:scale-105">
+                        Calificar y Enviar
+                    </button>
+                    <button type="button" onclick="window.print()" class="bg-stone-600 text-white font-bold py-3 px-10 rounded-full shadow-lg hover:bg-stone-700 transition-all">
+                        Imprimir
+                    </button>
+                </div>
+            </form>
+
+            <div id="results-area" class="hidden mt-10 p-8 bg-stone-100 rounded-2xl text-center border-2 border-stone-200">
+                <h3 class="text-2xl font-bold mb-2 text-amber-900">Resultado de <span id="res-name"></span></h3>
+                <div class="text-5xl font-bold mb-3 text-stone-800" id="res-score">0 / 10</div>
+                <p id="res-msg" class="text-gray-600 font-medium text-lg"></p>
+                <div class="mt-4 p-2 bg-green-100 text-green-800 rounded inline-block text-sm">
+                    ✅ Datos guardados en la nube
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-stone-900 text-stone-400 py-8 text-center mt-12 no-print">
+        <p class="text-sm">© 2023 CafeLab Educación. Matemáticas para la vida real.</p>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT -->
+    <script>
+        // URL ACTUALIZADA
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxMErHSKbLvo52nlDDOBPYgiyjEx9_5dhKgYzimcIPTm40oYnDS_rNDL7BaKJ0O7PiK/exec"; 
+
+        const correctAnswers = {
+            q1: { ans: 'b', explain: 'Correcto. Al ser días distintos (unidades de tiempo/lote), los denominadores varían y se requiere suma heterogénea.' },
+            q2: { ans: 'a', explain: 'Correcto. El tanque es el mismo (denominador 8), se mantiene la base.' },
+            q3: { ans: 'c', explain: 'Correcto. División de fracciones: 5/2 ÷ 1/2 = 10/2 = 5.' },
+            q4: { ans: 'b', explain: 'Correcto. Escalar (doble) es multiplicar.' },
+            q5: { ans: 'a', explain: 'Correcto. 20/100 simplificado por 20 es 1/5.' },
+            q6: { ans: 'b', explain: 'Correcto. La prueba de igualdad es el producto cruzado.' },
+            q7: { ans: 'a', explain: 'Correcto. Fórmula de la carita feliz.' },
+            
+            // NUEVA RESPUESTA Q8
+            q8: { ans: 'b', explain: 'Correcto. El texto enfatiza el impacto económico y de calidad, no solo la operación matemática.' },
+            
+            q9: { ans: ['3/4', '0.75'], explain: 'Correcto. 75/100 ÷ 25 = 3/4.' },
+            q10: { ans: ['b', 'c'], explain: 'Correcto. En estas operaciones se multiplican los denominadores, creando uno nuevo.' }
+        };
+
+        function calculateScore() {
+            const nameInput = document.getElementById('studentName').value;
+            const gradeInput = document.getElementById('studentGrade').value;
+
+            if (!nameInput.trim() || !gradeInput.trim()) { alert("⚠️ Por favor ingresa Nombre y Finca/Grado."); return; }
+
+            const btn = document.querySelector('button[onclick="calculateScore()"]');
+            btn.innerHTML = "⏳ Procesando..."; btn.disabled = true;
+
+            let score = 0;
+            let respuestasRaw = {};
+            const form = document.getElementById('quizForm');
+
+            // Reset UI
+            document.querySelectorAll('.feedback').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.question-box').forEach(el => el.classList.remove('correct-answer', 'wrong-answer'));
+
+            // Validar Q1-Q8
+            const radioKeys = ['q1','q2','q3','q4','q5','q6','q7','q8'];
+            radioKeys.forEach(key => {
+                const selected = form.querySelector(`input[name="${key}"]:checked`);
+                const box = document.getElementById(key + '-box');
+                const fb = box.querySelector('.feedback');
+                let val = selected ? selected.value : "";
+                respuestasRaw[key] = val;
+
+                if (selected && selected.value === correctAnswers[key].ans) {
+                    score++; box.classList.add('correct-answer');
+                    fb.innerHTML = `✅ ${correctAnswers[key].explain}`;
+                } else {
+                    box.classList.add('wrong-answer');
+                    fb.innerHTML = selected ? `❌ ${correctAnswers[key].explain}` : "❌ Sin responder";
+                }
+                fb.classList.remove('hidden');
+            });
+
+            // Validar Q9
+            const q9Val = document.getElementById('q9_input').value;
+            respuestasRaw['q9'] = q9Val;
+            const q9Clean = q9Val.toLowerCase().replace(/\s/g, '');
+            const q9Box = document.getElementById('q9-box'); const q9Fb = q9Box.querySelector('.feedback');
+            
+            if (correctAnswers.q9.ans.includes(q9Clean)) {
+                score++; q9Box.classList.add('correct-answer'); q9Fb.innerHTML = `✅ ${correctAnswers.q9.explain}`;
+            } else {
+                q9Box.classList.add('wrong-answer'); q9Fb.innerHTML = `❌ Respuesta esperada: 3/4`;
+            }
+            q9Fb.classList.remove('hidden');
+
+            // Validar Q10
+            const q10Selected = Array.from(form.querySelectorAll('input[name="q10"]:checked')).map(cb => cb.value);
+            respuestasRaw['q10'] = q10Selected.join(',');
+            const correctSet = correctAnswers.q10.ans;
+            const isQ10Correct = q10Selected.length === 2 && q10Selected.every(val => correctSet.includes(val));
+            const q10Box = document.getElementById('q10-box'); const q10Fb = q10Box.querySelector('.feedback');
+            
+            if (isQ10Correct) {
+                score++; q10Box.classList.add('correct-answer'); q10Fb.innerHTML = `✅ ${correctAnswers.q10.explain}`;
+            } else {
+                q10Box.classList.add('wrong-answer'); q10Fb.innerHTML = `❌ Correctas: Multiplicación y Suma Heterogénea`;
+            }
+            q10Fb.classList.remove('hidden');
+
+            // Resultados UI
+            document.getElementById('results-area').classList.remove('hidden');
+            document.getElementById('res-name').textContent = nameInput;
+            document.getElementById('res-score').textContent = score + " / 10";
+            
+            const msg = score >= 8 ? "¡Excelente! Eres un maestro cafetero." : score >= 6 ? "Bien, pero sigue repasando las fórmulas." : "Necesitas reforzar la teoría.";
+            document.getElementById('res-msg').textContent = msg;
+            
+            document.getElementById('results-area').scrollIntoView({ behavior: 'smooth' });
+
+            // Enviar a Google Sheets
+            const data = JSON.stringify({ nombre: nameInput, grado: gradeInput, puntaje: score, ...respuestasRaw });
+            
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST", mode: "no-cors",
+                headers: { "Content-Type": "application/json" }, body: data
+            }).then(() => {
+                btn.innerHTML = "✅ Guardado";
+                alert(`¡Examen enviado!\nNota: ${score}/10`);
+            }).catch(() => {
+                btn.innerHTML = "⚠️ Error Red";
+                alert("Calificado. Error al guardar en la nube (revisa tu conexión).");
+            });
+        }
+    </script>
+</body>
+</html>
