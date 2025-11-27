@@ -10,7 +10,7 @@
         body { font-family: 'Poppins', sans-serif; }
         h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
         .serif { font-family: 'Lora', serif; }
-        /* Estilo para las variables matemáticas (sin signos de moneda) */
+        /* Estilo para las variables matemáticas */
         .math-var { font-family: 'Courier New', monospace; font-weight: bold; color: #d97706; background: #fffbeb; padding: 0 4px; border-radius: 4px; }
         .print-break { page-break-before: always; }
         
@@ -34,7 +34,7 @@
     <header class="bg-amber-700 text-white pt-8 pb-8 px-4 shadow-xl">
         <div class="max-w-4xl mx-auto text-center">
             
-            <!-- LOGO CAFELAB INSERTADO AQUÍ -->
+            <!-- LOGO CAFELAB -->
             <img src="https://res.cloudinary.com/dgqpeth4f/image/upload/v1748483304/logo_aaa_hvqghu.png" alt="Logo CafeLab" class="mx-auto w-48 md:w-64 mb-6 bg-white p-3 rounded-xl shadow-lg">
 
             <h1 class="text-3xl md:text-5xl font-bold mb-2">Matemáticas con Aroma de Café</h1>
@@ -93,7 +93,7 @@
         </div>
     </section>
 
-    <!-- NIVEL 2 CON TABLA CORREGIDA -->
+    <!-- NIVEL 2 CON TABLA ACTUALIZADA -->
     <section class="max-w-4xl mx-auto px-4 mb-10">
         <div class="flex items-center gap-3 mb-4">
             <span class="bg-amber-600 text-white font-bold px-3 py-1 rounded text-sm">NIVEL 2</span>
@@ -115,28 +115,24 @@
                 <tbody class="text-sm text-gray-700 divide-y divide-gray-200">
                     <tr class="bg-green-50">
                         <td class="p-3 font-semibold">Aumentar, Agregar, Ganar</td>
-                        <!-- NOMBRE DE OPERACIÓN COMPLETADO -->
                         <td class="p-3 text-center font-bold text-lg text-green-700">+ (Sumar)</td>
                         <td class="p-3">Un saco (<span class="math-var">x</span>) aumenta 2 kilos</td>
                         <td class="p-3 font-mono font-bold">x + 2</td>
                     </tr>
                     <tr>
                         <td class="p-3 font-semibold">Disminuir, Perder, Merma</td>
-                        <!-- NOMBRE DE OPERACIÓN COMPLETADO -->
                         <td class="p-3 text-center font-bold text-lg text-red-700">- (Restar)</td>
                         <td class="p-3">Un saco (<span class="math-var">x</span>) pierde 5 kilos</td>
                         <td class="p-3 font-mono font-bold">x - 5</td>
                     </tr>
                     <tr class="bg-blue-50">
                         <td class="p-3 font-semibold">Doble, Triple, Veces</td>
-                        <!-- NOMBRE DE OPERACIÓN COMPLETADO (Ya estaba, se mantiene) -->
                         <td class="p-3 text-center font-bold text-lg text-blue-700">· (Multiplicar)</td>
                         <td class="p-3">El doble de la cosecha (<span class="math-var">c</span>)</td>
                         <td class="p-3 font-mono font-bold">2c</td>
                     </tr>
                     <tr>
                         <td class="p-3 font-semibold">Mitad, Repartir</td>
-                        <!-- NOMBRE DE OPERACIÓN COMPLETADO -->
                         <td class="p-3 text-center font-bold text-lg text-purple-700">÷ (Dividir)</td>
                         <td class="p-3">La mitad del precio (<span class="math-var">p</span>)</td>
                         <td class="p-3 font-mono font-bold">p / 2</td>
@@ -370,7 +366,7 @@
                 <!-- Botones -->
                 <div class="mt-8 text-center flex flex-col md:flex-row gap-4 justify-center no-print">
                     <button type="button" onclick="calculateScore()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all">
-                        ✅ Calificar Examen
+                        ✅ Calificar y Enviar
                     </button>
                     <button type="button" onclick="window.print()" class="bg-amber-800 hover:bg-amber-900 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all">
                         🖨️ Imprimir
@@ -394,9 +390,11 @@
         <p class="text-sm">© 2023 CafeLab Educación. Pasito a pasito se llega lejos.</p>
     </footer>
 
-    <!-- LÓGICA JAVASCRIPT -->
+    <!-- LÓGICA JAVASCRIPT CON ENVÍO DE DATOS -->
     <script>
-        // Respuestas Correctas y Explicaciones
+        // CONFIGURACIÓN DEL SERVIDOR GOOGLE SHEETS
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby8RZ3TxQSm8yOsb3JtAT0EwKMQF3cehZnVqNSnPiN_ew3gyEknFD96CL2pvG575gm9zg/exec";
+
         const correctAnswers = {
             q1: { ans: 'b', explain: 'Correcto: "Aumentar" significa sumar. Al precio (p) le sumamos 500.' },
             q2: { ans: 'c', explain: 'Correcto: "El triple" significa multiplicar por 3. (3x).' },
@@ -413,11 +411,18 @@
         function calculateScore() {
             const nameInput = document.getElementById('studentName').value;
             if (!nameInput.trim()) {
-                alert("Por favor, escribe tu nombre antes de calificar.");
+                alert("⚠️ Por favor, escribe tu nombre antes de calificar.");
+                document.getElementById('studentName').focus();
                 return;
             }
 
+            // Cambiar estado del botón
+            const btn = document.querySelector('button[onclick="calculateScore()"]');
+            btn.innerHTML = "⏳ Enviando...";
+            btn.disabled = true;
+
             let score = 0;
+            let detailAnswers = []; 
             const form = document.getElementById('quizForm');
 
             // Limpiar feedback previo
@@ -427,20 +432,23 @@
                 el.parentElement.classList.remove('correct-answer', 'wrong-answer', 'border-2', 'p-2');
             });
 
-            // Evaluar Q1 a Q8 (Radio Buttons)
+            // Evaluar Q1 a Q8
             for (let i = 1; i <= 8; i++) {
                 const qKey = 'q' + i;
                 const selected = form.querySelector(`input[name="${qKey}"]:checked`);
                 const box = document.getElementById(qKey + '-box');
                 const feedbackDiv = box.querySelector('.feedback');
                 
+                let val = selected ? selected.value : "-";
                 let isCorrect = false;
                 if (selected && selected.value === correctAnswers[qKey].ans) {
                     isCorrect = true;
                     score++;
                 }
+                
+                detailAnswers.push(`${qKey}: ${val} (${isCorrect ? 'OK' : 'X'})`);
 
-                // Mostrar Feedback
+                // Feedback Visual
                 box.classList.add('border-2', 'p-2', 'rounded');
                 feedbackDiv.classList.remove('hidden');
                 if (isCorrect) {
@@ -454,17 +462,19 @@
                 }
             }
 
-            // Evaluar Q9 (Texto)
-            const q9Input = document.getElementById('q9_input').value.toLowerCase().replace(/\s/g, ''); // Quitar espacios
+            // Evaluar Q9
+            const q9Input = document.getElementById('q9_input').value;
+            const q9Clean = q9Input.toLowerCase().replace(/\s/g, '');
+            const q9Valid = correctAnswers.q9.ans.map(a => a.replace(/\s/g, ''));
             const q9Box = document.getElementById('q9-box');
             const q9Feedback = q9Box.querySelector('.feedback');
-            const q9Valid = correctAnswers.q9.ans.map(a => a.replace(/\s/g, '')); // Normalizar respuestas válidas
-
             q9Box.classList.add('border-2', 'p-2', 'rounded');
             q9Feedback.classList.remove('hidden');
 
-            if (q9Valid.includes(q9Input)) {
+            let isQ9Correct = false;
+            if (q9Valid.includes(q9Clean)) {
                 score++;
+                isQ9Correct = true;
                 q9Box.classList.add('correct-answer');
                 q9Feedback.innerHTML = `✅ ${correctAnswers.q9.explain}`;
                 q9Feedback.classList.add('bg-green-100', 'text-green-800');
@@ -473,16 +483,14 @@
                 q9Feedback.innerHTML = `❌ Respuesta esperada: R + V = 50`;
                 q9Feedback.classList.add('bg-red-100', 'text-red-800');
             }
+            detailAnswers.push(`Q9: ${q9Input} (${isQ9Correct ? 'OK' : 'X'})`);
 
-            // Evaluar Q10 (Checkbox Múltiple)
+            // Evaluar Q10
             const q10Selected = Array.from(form.querySelectorAll('input[name="q10"]:checked')).map(cb => cb.value);
-            const q10Box = document.getElementById('q10-box');
-            const q10Feedback = q10Box.querySelector('.feedback');
-            
-            // Verificar si seleccionó exactamente las 2 correctas ('b' y 'd')
             const correctSet = correctAnswers.q10.ans;
             const isQ10Correct = q10Selected.length === 2 && q10Selected.every(val => correctSet.includes(val));
-
+            const q10Box = document.getElementById('q10-box');
+            const q10Feedback = q10Box.querySelector('.feedback');
             q10Box.classList.add('border-2', 'p-2', 'rounded');
             q10Feedback.classList.remove('hidden');
 
@@ -493,23 +501,44 @@
                 q10Feedback.classList.add('bg-green-100', 'text-green-800');
             } else {
                 q10Box.classList.add('wrong-answer');
-                q10Feedback.innerHTML = `❌ Debes seleccionar las dos ecuaciones correctas (Cantidad y Dinero).`;
+                q10Feedback.innerHTML = `❌ Debes seleccionar las dos ecuaciones correctas.`;
                 q10Feedback.classList.add('bg-red-100', 'text-red-800');
             }
+            detailAnswers.push(`Q10: [${q10Selected.join(',')}] (${isQ10Correct ? 'OK' : 'X'})`);
 
-            // MOSTRAR RESULTADOS FINALES
+            // MOSTRAR RESULTADOS
             const resultsArea = document.getElementById('results-area');
             resultsArea.classList.remove('hidden');
             document.getElementById('res-name').textContent = nameInput;
             document.getElementById('res-score').textContent = score + " / 10";
             
             const msgEl = document.getElementById('res-msg');
-            if(score === 10) msgEl.textContent = "¡Perfecto! Eres un maestro del café.";
-            else if(score >= 7) msgEl.textContent = "¡Muy bien! Casi lo logras todo.";
-            else msgEl.textContent = "Sigue practicando. Revisa los errores marcados en rojo.";
+            if(score === 10) msgEl.textContent = "¡Perfecto! Enviando resultados...";
+            else if(score >= 7) msgEl.textContent = "¡Muy bien! Enviando resultados...";
+            else msgEl.textContent = "Sigue practicando. Enviando resultados...";
 
-            // Scroll hacia resultados
             resultsArea.scrollIntoView({ behavior: 'smooth' });
+
+            // ENVIAR A GOOGLE SHEETS
+            const dataToSend = JSON.stringify({
+                nombre: nameInput,
+                puntaje: score,
+                respuestas: detailAnswers.join(" | ")
+            });
+
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors", 
+                headers: { "Content-Type": "application/json" },
+                body: dataToSend
+            }).then(() => {
+                btn.innerHTML = "✅ Calificado y Enviado";
+                alert(`¡Examen enviado correctamente!\nEstudiante: ${nameInput}\nNota: ${score}/10`);
+            }).catch(err => {
+                console.error("Error envío", err);
+                btn.innerHTML = "⚠️ Error de conexión";
+                alert("Se calculó tu nota, pero hubo un error al enviarla a la base de datos.");
+            });
         }
     </script>
 
