@@ -391,8 +391,9 @@
     </footer>
 
     <!-- LÓGICA JAVASCRIPT CON ENVÍO DE DATOS -->
+<!-- LÓGICA JAVASCRIPT FINAL -->
     <script>
-        // CONFIGURACIÓN DEL SERVIDOR GOOGLE SHEETS
+        // TU URL DE APPS SCRIPT (Asegúrate que sea la correcta)
         const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby8RZ3TxQSm8yOsb3JtAT0EwKMQF3cehZnVqNSnPiN_ew3gyEknFD96CL2pvG575gm9zg/exec";
 
         const correctAnswers = {
@@ -416,37 +417,40 @@
                 return;
             }
 
-            // Cambiar estado del botón
             const btn = document.querySelector('button[onclick="calculateScore()"]');
             btn.innerHTML = "⏳ Enviando...";
             btn.disabled = true;
 
             let score = 0;
-            let detailAnswers = []; 
             const form = document.getElementById('quizForm');
+            
+            // Objeto para guardar respuestas individuales
+            let respuestasSeparadas = {};
 
-            // Limpiar feedback previo
+            // Limpiar feedback
             document.querySelectorAll('.feedback').forEach(el => {
                 el.classList.add('hidden');
                 el.classList.remove('bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
                 el.parentElement.classList.remove('correct-answer', 'wrong-answer', 'border-2', 'p-2');
             });
 
-            // Evaluar Q1 a Q8
+            // --- EVALUAR Q1 A Q8 ---
             for (let i = 1; i <= 8; i++) {
                 const qKey = 'q' + i;
                 const selected = form.querySelector(`input[name="${qKey}"]:checked`);
                 const box = document.getElementById(qKey + '-box');
                 const feedbackDiv = box.querySelector('.feedback');
                 
-                let val = selected ? selected.value : "-";
+                let val = selected ? selected.value : "Sin responder";
                 let isCorrect = false;
+
                 if (selected && selected.value === correctAnswers[qKey].ans) {
                     isCorrect = true;
                     score++;
                 }
-                
-                detailAnswers.push(`${qKey}: ${val} (${isCorrect ? 'OK' : 'X'})`);
+
+                // Guardamos en el objeto: "respuesta (Estado)"
+                respuestasSeparadas[qKey] = `${val} (${isCorrect ? 'OK' : 'X'})`;
 
                 // Feedback Visual
                 box.classList.add('border-2', 'p-2', 'rounded');
@@ -462,16 +466,17 @@
                 }
             }
 
-            // Evaluar Q9
+            // --- EVALUAR Q9 ---
             const q9Input = document.getElementById('q9_input').value;
             const q9Clean = q9Input.toLowerCase().replace(/\s/g, '');
             const q9Valid = correctAnswers.q9.ans.map(a => a.replace(/\s/g, ''));
             const q9Box = document.getElementById('q9-box');
             const q9Feedback = q9Box.querySelector('.feedback');
+            
             q9Box.classList.add('border-2', 'p-2', 'rounded');
             q9Feedback.classList.remove('hidden');
-
             let isQ9Correct = false;
+
             if (q9Valid.includes(q9Clean)) {
                 score++;
                 isQ9Correct = true;
@@ -483,14 +488,15 @@
                 q9Feedback.innerHTML = `❌ Respuesta esperada: R + V = 50`;
                 q9Feedback.classList.add('bg-red-100', 'text-red-800');
             }
-            detailAnswers.push(`Q9: ${q9Input} (${isQ9Correct ? 'OK' : 'X'})`);
+            respuestasSeparadas['q9'] = `${q9Input} (${isQ9Correct ? 'OK' : 'X'})`;
 
-            // Evaluar Q10
+            // --- EVALUAR Q10 ---
             const q10Selected = Array.from(form.querySelectorAll('input[name="q10"]:checked')).map(cb => cb.value);
             const correctSet = correctAnswers.q10.ans;
             const isQ10Correct = q10Selected.length === 2 && q10Selected.every(val => correctSet.includes(val));
             const q10Box = document.getElementById('q10-box');
             const q10Feedback = q10Box.querySelector('.feedback');
+            
             q10Box.classList.add('border-2', 'p-2', 'rounded');
             q10Feedback.classList.remove('hidden');
 
@@ -504,9 +510,11 @@
                 q10Feedback.innerHTML = `❌ Debes seleccionar las dos ecuaciones correctas.`;
                 q10Feedback.classList.add('bg-red-100', 'text-red-800');
             }
-            detailAnswers.push(`Q10: [${q10Selected.join(',')}] (${isQ10Correct ? 'OK' : 'X'})`);
+            // Guardamos las opciones separadas por coma
+            respuestasSeparadas['q10'] = `[${q10Selected.join(',')}] (${isQ10Correct ? 'OK' : 'X'})`;
 
-            // MOSTRAR RESULTADOS
+
+            // --- MOSTRAR RESULTADOS LOCALES ---
             const resultsArea = document.getElementById('results-area');
             resultsArea.classList.remove('hidden');
             document.getElementById('res-name').textContent = nameInput;
@@ -519,25 +527,36 @@
 
             resultsArea.scrollIntoView({ behavior: 'smooth' });
 
-            // ENVIAR A GOOGLE SHEETS
+            // --- PREPARAR DATOS PARA ENVIAR (JSON PLANO) ---
             const dataToSend = JSON.stringify({
                 nombre: nameInput,
                 puntaje: score,
-                respuestas: detailAnswers.join(" | ")
+                // Esparcimos las respuestas individuales
+                q1: respuestasSeparadas.q1,
+                q2: respuestasSeparadas.q2,
+                q3: respuestasSeparadas.q3,
+                q4: respuestasSeparadas.q4,
+                q5: respuestasSeparadas.q5,
+                q6: respuestasSeparadas.q6,
+                q7: respuestasSeparadas.q7,
+                q8: respuestasSeparadas.q8,
+                q9: respuestasSeparadas.q9,
+                q10: respuestasSeparadas.q10
             });
 
+            // --- ENVIAR ---
             fetch(GOOGLE_SCRIPT_URL, {
                 method: "POST",
                 mode: "no-cors", 
                 headers: { "Content-Type": "application/json" },
                 body: dataToSend
             }).then(() => {
-                btn.innerHTML = "✅ Calificado y Enviado";
-                alert(`¡Examen enviado correctamente!\nEstudiante: ${nameInput}\nNota: ${score}/10`);
+                btn.innerHTML = "✅ Guardado Exitosamente";
+                alert(`¡Datos guardados!\nEstudiante: ${nameInput}\nPuntaje: ${score}/10`);
             }).catch(err => {
                 console.error("Error envío", err);
-                btn.innerHTML = "⚠️ Error de conexión";
-                alert("Se calculó tu nota, pero hubo un error al enviarla a la base de datos.");
+                btn.innerHTML = "⚠️ Error de Red";
+                alert("Se calificó, pero hubo un error al guardar en la hoja de cálculo.");
             });
         }
     </script>
