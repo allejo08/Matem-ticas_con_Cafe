@@ -10,11 +10,10 @@
         body { font-family: 'Poppins', sans-serif; }
         h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
         .serif { font-family: 'Lora', serif; }
-        /* Estilo para las variables matemáticas */
         .math-var { font-family: 'Courier New', monospace; font-weight: bold; color: #d97706; background: #fffbeb; padding: 0 4px; border-radius: 4px; }
         .print-break { page-break-before: always; }
         
-        /* Estilos para feedback del examen */
+        /* Estilos feedback */
         .correct-answer { background-color: #dcfce7; border-color: #22c55e; }
         .wrong-answer { background-color: #fee2e2; border-color: #ef4444; }
         
@@ -33,195 +32,17 @@
     <!-- HEADER CON LOGO -->
     <header class="bg-amber-700 text-white pt-8 pb-8 px-4 shadow-xl">
         <div class="max-w-4xl mx-auto text-center">
-            
-            <!-- LOGO CAFELAB -->
             <img src="https://res.cloudinary.com/dgqpeth4f/image/upload/v1748483304/logo_aaa_hvqghu.png" alt="Logo CafeLab" class="mx-auto w-48 md:w-64 mb-6 bg-white p-3 rounded-xl shadow-lg">
-
             <h1 class="text-3xl md:text-5xl font-bold mb-2">Matemáticas con Aroma de Café</h1>
             <h2 class="text-xl md:text-2xl font-light text-amber-200">Guía Interactiva Paso a Paso</h2>
-            <div class="mt-6 flex flex-wrap justify-center gap-3 text-sm font-medium">
-                <span class="bg-green-600 px-3 py-1 rounded-full">Nivel 1: Básico</span>
-                <span class="bg-amber-600 px-3 py-1 rounded-full">Nivel 2: Intermedio</span>
-                <span class="bg-red-600 px-3 py-1 rounded-full">Nivel 3: Avanzado</span>
-            </div>
         </div>
     </header>
 
-    <!-- INTRODUCCIÓN -->
+    <!-- INTRODUCCIÓN (Resumida para ahorrar espacio en este ejemplo) -->
     <section class="max-w-4xl mx-auto px-4 py-8">
         <div class="bg-white p-6 rounded-2xl shadow border-l-8 border-green-500">
             <h3 class="text-xl font-bold text-gray-800 mb-2">👋 Hola Estudiante</h3>
-            <p class="text-gray-600">
-                El álgebra no es difícil, solo es un idioma diferente. En esta guía no usaremos términos extraños desde el principio. 
-                Imagina que la letra <span class="math-var">x</span> es simplemente una caja cerrada o un saco de café del cual no sabemos el peso exacto.
-                Vamos a aprender a "leer" matemáticas.
-            </p>
-        </div>
-    </section>
-
-    <!-- NIVEL 1 -->
-    <section class="max-w-4xl mx-auto px-4 mb-10">
-        <div class="flex items-center gap-3 mb-4">
-            <span class="bg-green-600 text-white font-bold px-3 py-1 rounded text-sm">NIVEL 1</span>
-            <h2 class="text-2xl font-bold text-gray-800">¿Qué es una Variable?</h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-6">
-            <div class="bg-white p-5 rounded-xl border border-gray-200">
-                <h4 class="font-bold text-amber-800 mb-2">Aritmética (Lo que ya sabes)</h4>
-                <p class="text-sm text-gray-600 mb-3">Trabajas con números conocidos.</p>
-                <div class="bg-gray-100 p-3 rounded text-center font-mono text-lg">
-                    5 kilos + 2 kilos = 7 kilos
-                </div>
-            </div>
-
-            <div class="bg-white p-5 rounded-xl border-2 border-green-500 shadow-md">
-                <h4 class="font-bold text-green-700 mb-2">Álgebra (Lo nuevo)</h4>
-                <p class="text-sm text-gray-600 mb-3">Trabajas con valores desconocidos (Sacos).</p>
-                <div class="bg-green-50 p-3 rounded text-center font-mono text-lg font-bold text-green-800">
-                    Saco + 2 kilos = 7 kilos
-                </div>
-                <p class="text-xs text-center mt-2 text-gray-500">
-                    Si al saco le sumas 2 y da 7...<br>
-                    <strong>¿Cuánto pesa el saco? (Respuesta: 5)</strong>
-                </p>
-            </div>
-        </div>
-        
-        <div class="mt-4 bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-            <p class="text-sm">💡 <strong>Tip:</strong> En matemáticas, por pereza de escribir "Saco", usamos la letra <span class="math-var">x</span>. <br>Entonces escribimos: <code class="font-bold">x + 2 = 7</code>.</p>
-        </div>
-    </section>
-
-    <!-- NIVEL 2 CON TABLA ACTUALIZADA -->
-    <section class="max-w-4xl mx-auto px-4 mb-10">
-        <div class="flex items-center gap-3 mb-4">
-            <span class="bg-amber-600 text-white font-bold px-3 py-1 rounded text-sm">NIVEL 2</span>
-            <h2 class="text-2xl font-bold text-gray-800">Traduciendo Palabras a Símbolos</h2>
-        </div>
-
-        <p class="mb-4 text-gray-700">Para resolver problemas reales, primero debes traducirlos del español al "Matemático". Aquí tienes tu diccionario:</p>
-
-        <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse bg-white rounded-lg shadow overflow-hidden">
-                <thead class="bg-amber-800 text-white">
-                    <tr>
-                        <th class="p-3 text-sm">Palabra Clave</th>
-                        <th class="p-3 text-sm text-center">Operación</th>
-                        <th class="p-3 text-sm">Ejemplo Cafetero</th>
-                        <th class="p-3 text-sm">Traducción</th>
-                    </tr>
-                </thead>
-                <tbody class="text-sm text-gray-700 divide-y divide-gray-200">
-                    <tr class="bg-green-50">
-                        <td class="p-3 font-semibold">Aumentar, Agregar, Ganar</td>
-                        <td class="p-3 text-center font-bold text-lg text-green-700">+ (Sumar)</td>
-                        <td class="p-3">Un saco (<span class="math-var">x</span>) aumenta 2 kilos</td>
-                        <td class="p-3 font-mono font-bold">x + 2</td>
-                    </tr>
-                    <tr>
-                        <td class="p-3 font-semibold">Disminuir, Perder, Merma</td>
-                        <td class="p-3 text-center font-bold text-lg text-red-700">- (Restar)</td>
-                        <td class="p-3">Un saco (<span class="math-var">x</span>) pierde 5 kilos</td>
-                        <td class="p-3 font-mono font-bold">x - 5</td>
-                    </tr>
-                    <tr class="bg-blue-50">
-                        <td class="p-3 font-semibold">Doble, Triple, Veces</td>
-                        <td class="p-3 text-center font-bold text-lg text-blue-700">· (Multiplicar)</td>
-                        <td class="p-3">El doble de la cosecha (<span class="math-var">c</span>)</td>
-                        <td class="p-3 font-mono font-bold">2c</td>
-                    </tr>
-                    <tr>
-                        <td class="p-3 font-semibold">Mitad, Repartir</td>
-                        <td class="p-3 text-center font-bold text-lg text-purple-700">÷ (Dividir)</td>
-                        <td class="p-3">La mitad del precio (<span class="math-var">p</span>)</td>
-                        <td class="p-3 font-mono font-bold">p / 2</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <!-- NIVEL 3 -->
-    <section class="max-w-4xl mx-auto px-4 mb-10">
-        <div class="flex items-center gap-3 mb-4">
-            <span class="bg-red-600 text-white font-bold px-3 py-1 rounded text-sm">NIVEL 3</span>
-            <h2 class="text-2xl font-bold text-gray-800">El Poder de la Coma (Jerarquía)</h2>
-        </div>
-
-        <div class="bg-white p-6 rounded-xl shadow border border-gray-200">
-            <p class="mb-4">
-                El paréntesis <strong>( )</strong> sirve para agrupar acciones que van juntas. Observa la diferencia:
-            </p>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Caso 1 -->
-                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
-                    <div class="flex justify-between items-center mb-2">
-                        <h4 class="font-bold text-red-800">CASO A: Sin agrupar</h4>
-                    </div>
-                    <p class="italic text-sm mb-2">"Quiero el doble de la producción, más 10 sacos".</p>
-                    <div class="mt-3 text-center font-mono font-bold text-xl text-red-600">
-                        2x + 10
-                    </div>
-                    <p class="text-xs text-center mt-1">Multiplicas primero, sumas después.</p>
-                </div>
-
-                <!-- Caso 2 -->
-                <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-                    <div class="flex justify-between items-center mb-2">
-                        <h4 class="font-bold text-green-800">CASO B: Agrupado</h4>
-                    </div>
-                    <p class="italic text-sm mb-2">"Quiero el doble de: la producción más 10 sacos".</p>
-                    <div class="mt-3 text-center font-mono font-bold text-xl text-green-600">
-                        2(x + 10)
-                    </div>
-                    <p class="text-xs text-center mt-1">Sumas primero, luego duplicas el total.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NIVEL 4 -->
-    <section class="max-w-4xl mx-auto px-4 py-8 bg-stone-800 text-stone-100 rounded-2xl mb-12 shadow-2xl">
-        <div class="flex items-center gap-3 mb-6">
-            <span class="bg-purple-600 text-white font-bold px-3 py-1 rounded text-sm">NIVEL 4</span>
-            <h2 class="text-2xl font-bold text-white">Reto Final: El Mezclador</h2>
-        </div>
-
-        <p class="mb-6 text-stone-300">
-            A veces no tenemos una sola incógnita, sino dos (<span class="math-var text-black">A</span> y <span class="math-var text-black">B</span>).
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Datos -->
-            <div>
-                <h4 class="text-amber-400 font-bold text-lg mb-3">📋 Los Datos</h4>
-                <ul class="space-y-4 text-sm">
-                    <li class="flex items-center gap-3">
-                        <div class="bg-red-500 w-8 h-8 rounded-full flex items-center justify-center font-bold">A</div>
-                        <div>Café Calidad A (20 pesos/kilo)</div>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <div class="bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center font-bold">B</div>
-                        <div>Café Calidad B (10 pesos/kilo)</div>
-                    </li>
-                    <li class="bg-stone-700 p-2 rounded border border-stone-600">
-                        <strong>Meta:</strong> Mezcla de <span class="text-amber-300">10 kilos</span> que cueste <span class="text-green-300">160 pesos</span>.
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Solución -->
-            <div class="bg-stone-700 p-4 rounded-xl border border-stone-600">
-                <h4 class="text-white font-bold mb-3">⚙️ Las Ecuaciones</h4>
-                
-                <p class="text-sm text-stone-300 mb-1">1. Ecuación de KILOS:</p>
-                <div class="bg-stone-900 p-2 rounded text-center font-mono text-amber-300 mb-3">A + B = 10</div>
-
-                <p class="text-sm text-stone-300 mb-1">2. Ecuación de DINERO:</p>
-                <div class="bg-stone-900 p-2 rounded text-center font-mono text-green-300 mb-3">20A + 10B = 160</div>
-            </div>
+            <p class="text-gray-600">Bienvenido a tu evaluación de Álgebra Cafetera.</p>
         </div>
     </section>
 
@@ -229,19 +50,24 @@
     <section class="max-w-4xl mx-auto px-4 py-12 print-break" id="test-section">
         <div class="border-2 border-stone-300 p-6 md:p-8 rounded-xl bg-white shadow-sm relative">
             
-            <!-- Formulario de Datos -->
+            <!-- DATOS DEL ESTUDIANTE (NUEVO CAMPO GRADO) -->
             <div class="text-center mb-8 border-b-2 border-stone-100 pb-4">
                 <h2 class="text-3xl font-bold text-amber-800">📝 Examen de Certificación</h2>
-                <p class="text-gray-500 mb-4">Demuestra que dominas el álgebra cafetera</p>
+                <p class="text-gray-500 mb-6">Completa tus datos para iniciar</p>
                 
-                <div class="max-w-md mx-auto">
-                    <label class="block text-left text-sm font-bold text-gray-700 mb-1">Nombre del Estudiante:</label>
-                    <input type="text" id="studentName" class="w-full p-2 border border-gray-300 rounded focus:border-amber-500 outline-none" placeholder="Escribe tu nombre aquí...">
+                <div class="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                    <div>
+                        <label class="block text-left text-sm font-bold text-gray-700 mb-1">Nombre Completo:</label>
+                        <input type="text" id="studentName" class="w-full p-2 border border-gray-300 rounded focus:border-amber-500 outline-none" placeholder="Ej: Pepito Pérez">
+                    </div>
+                    <div>
+                        <label class="block text-left text-sm font-bold text-gray-700 mb-1">Grado / Curso:</label>
+                        <input type="text" id="studentGrade" class="w-full p-2 border border-gray-300 rounded focus:border-amber-500 outline-none" placeholder="Ej: 901">
+                    </div>
                 </div>
             </div>
 
             <form id="quizForm">
-                <!-- GRID DE PREGUNTAS -->
                 <div class="grid md:grid-cols-2 gap-6 md:gap-x-12">
                     
                     <!-- PARTE 1 -->
@@ -251,9 +77,9 @@
                     <div class="question-box" id="q1-box">
                         <p class="font-bold mb-2">1. Si <span class="math-var">p</span> es el precio, ¿cómo escribes "El precio aumentó 500 pesos"?</p>
                         <div class="space-y-1 text-sm">
-                            <label class="block cursor-pointer"><input type="radio" name="q1" value="a" class="mr-2"> 500p</label>
-                            <label class="block cursor-pointer"><input type="radio" name="q1" value="b" class="mr-2"> p + 500</label>
-                            <label class="block cursor-pointer"><input type="radio" name="q1" value="c" class="mr-2"> p - 500</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q1" value="a" class="mr-2"> a) 500p</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q1" value="b" class="mr-2"> b) p + 500</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q1" value="c" class="mr-2"> c) p - 500</label>
                         </div>
                         <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
                     </div>
@@ -262,9 +88,9 @@
                     <div class="question-box" id="q2-box">
                         <p class="font-bold mb-2">2. ¿Cómo escribes "El triple de la producción (<span class="math-var">x</span>)"?</p>
                         <div class="space-y-1 text-sm">
-                            <label class="block cursor-pointer"><input type="radio" name="q2" value="a" class="mr-2"> 3 + x</label>
-                            <label class="block cursor-pointer"><input type="radio" name="q2" value="b" class="mr-2"> x³</label>
-                            <label class="block cursor-pointer"><input type="radio" name="q2" value="c" class="mr-2"> 3x</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q2" value="a" class="mr-2"> a) 3 + x</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q2" value="b" class="mr-2"> b) x³</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q2" value="c" class="mr-2"> c) 3x</label>
                         </div>
                         <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
                     </div>
@@ -273,8 +99,8 @@
                     <div class="question-box" id="q3-box">
                         <p class="font-bold mb-2">3. "La cosecha (<span class="math-var">c</span>) tuvo una merma (pérdida) de 10 kilos".</p>
                         <div class="space-y-1 text-sm">
-                            <label class="block cursor-pointer"><input type="radio" name="q3" value="a" class="mr-2"> c - 10</label>
-                            <label class="block cursor-pointer"><input type="radio" name="q3" value="b" class="mr-2"> 10 - c</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q3" value="a" class="mr-2"> a) c - 10</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q3" value="b" class="mr-2"> b) 10 - c</label>
                             <label class="block cursor-pointer"><input type="radio" name="q3" value="c" class="mr-2"> c ÷ 10</label>
                         </div>
                         <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
@@ -284,9 +110,9 @@
                     <div class="question-box" id="q4-box">
                         <p class="font-bold mb-2">4. "Repartir las ganancias (<span class="math-var">g</span>) entre 4 socios".</p>
                         <div class="space-y-1 text-sm">
-                            <label class="block cursor-pointer"><input type="radio" name="q4" value="a" class="mr-2"> 4g</label>
-                            <label class="block cursor-pointer"><input type="radio" name="q4" value="b" class="mr-2"> g - 4</label>
-                            <label class="block cursor-pointer"><input type="radio" name="q4" value="c" class="mr-2"> g / 4</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q4" value="a" class="mr-2"> a) 4g</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q4" value="b" class="mr-2"> b) g - 4</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q4" value="c" class="mr-2"> c) g / 4</label>
                         </div>
                         <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
                     </div>
@@ -298,9 +124,9 @@
                     <div class="question-box" id="q5-box">
                         <p class="font-bold mb-2">5. Selecciona: "El doble de la suma de peso (<span class="math-var">w</span>) más 5".</p>
                         <div class="space-y-1 text-sm">
-                            <label class="block cursor-pointer"><input type="radio" name="q5" value="a" class="mr-2"> 2w + 5</label>
-                            <label class="block cursor-pointer"><input type="radio" name="q5" value="b" class="mr-2"> 2(w + 5)</label>
-                            <label class="block cursor-pointer"><input type="radio" name="q5" value="c" class="mr-2"> 2 + w + 5</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q5" value="a" class="mr-2"> a) 2w + 5</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q5" value="b" class="mr-2"> b) 2(w + 5)</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q5" value="c" class="mr-2"> c) 2 + w + 5</label>
                         </div>
                         <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
                     </div>
@@ -309,8 +135,8 @@
                     <div class="question-box" id="q6-box">
                         <p class="font-bold mb-2">6. Si la fórmula es <span class="math-var">100 - 2x</span>, y <span class="math-var">x = 10</span>. ¿Resultado?</p>
                         <div class="space-y-1 text-sm">
-                            <label class="block cursor-pointer"><input type="radio" name="q6" value="a" class="mr-2"> 80 (Multiplico 2·10, luego resto)</label>
-                            <label class="block cursor-pointer"><input type="radio" name="q6" value="b" class="mr-2"> 980 (Resto 100-2, luego multiplico)</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q6" value="a" class="mr-2"> a) 80 (Multiplico 2·10, luego resto)</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q6" value="b" class="mr-2"> b) 980 (Resto 100-2, luego multiplico)</label>
                         </div>
                         <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
                     </div>
@@ -319,8 +145,8 @@
                     <div class="question-box" id="q7-box">
                         <p class="font-bold mb-2">7. Lectura Crítica: "Mitad de precio (<span class="math-var">p</span>), más el impuesto (<span class="math-var">t</span>)".</p>
                         <div class="space-y-1 text-sm">
-                            <label class="block cursor-pointer"><input type="radio" name="q7" value="a" class="mr-2"> (p / 2) + t</label>
-                            <label class="block cursor-pointer"><input type="radio" name="q7" value="b" class="mr-2"> (p + t) / 2</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q7" value="a" class="mr-2"> a) (p / 2) + t</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q7" value="b" class="mr-2"> b) (p + t) / 2</label>
                         </div>
                         <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
                     </div>
@@ -332,9 +158,9 @@
                     <div class="question-box" id="q8-box">
                         <p class="font-bold mb-2">8. Resuelve: Si <span class="math-var">3x = 1500</span>, ¿Cuánto vale <span class="math-var">x</span>?</p>
                         <div class="space-y-1 text-sm">
-                            <label class="block cursor-pointer"><input type="radio" name="q8" value="a" class="mr-2"> x = 500</label>
-                            <label class="block cursor-pointer"><input type="radio" name="q8" value="b" class="mr-2"> x = 4500</label>
-                            <label class="block cursor-pointer"><input type="radio" name="q8" value="c" class="mr-2"> x = 1497</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q8" value="a" class="mr-2"> a) x = 500</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q8" value="b" class="mr-2"> b) x = 4500</label>
+                            <label class="block cursor-pointer"><input type="radio" name="q8" value="c" class="mr-2"> c) x = 1497</label>
                         </div>
                         <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
                     </div>
@@ -354,10 +180,10 @@
                             <strong>Selecciona las DOS ecuaciones correctas:</strong>
                         </p>
                         <div class="grid grid-cols-2 gap-2 text-sm">
-                            <label class="flex items-center cursor-pointer"><input type="checkbox" name="q10" value="a" class="mr-2"> L + B = 3800</label>
-                            <label class="flex items-center cursor-pointer"><input type="checkbox" name="q10" value="b" class="mr-2"> 500L + 200B = 3800</label>
-                            <label class="flex items-center cursor-pointer"><input type="checkbox" name="q10" value="c" class="mr-2"> 500L + 200B = 10</label>
-                            <label class="flex items-center cursor-pointer"><input type="checkbox" name="q10" value="d" class="mr-2"> L + B = 10</label>
+                            <label class="flex items-center cursor-pointer"><input type="checkbox" name="q10" value="a" class="mr-2"> a) L + B = 3800</label>
+                            <label class="flex items-center cursor-pointer"><input type="checkbox" name="q10" value="b" class="mr-2"> b) 500L + 200B = 3800</label>
+                            <label class="flex items-center cursor-pointer"><input type="checkbox" name="q10" value="c" class="mr-2"> c) 500L + 200B = 10</label>
+                            <label class="flex items-center cursor-pointer"><input type="checkbox" name="q10" value="d" class="mr-2"> d) L + B = 10</label>
                         </div>
                         <div class="feedback hidden mt-2 text-xs p-2 rounded"></div>
                     </div>
@@ -374,58 +200,56 @@
                 </div>
             </form>
 
-            <!-- RESULTADOS (Oculto inicialmente) -->
+            <!-- RESULTADOS -->
             <div id="results-area" class="hidden mt-8 p-6 bg-stone-100 rounded-xl border border-stone-300 text-center">
                 <h3 class="text-2xl font-bold text-amber-900 mb-2">Resultados de <span id="res-name"></span></h3>
                 <div class="text-4xl font-bold mb-4" id="res-score">0 / 10</div>
                 <p id="res-msg" class="text-gray-700 font-medium"></p>
                 <p class="text-sm text-gray-500 mt-2">Revisa las correcciones arriba ⬆️</p>
             </div>
-
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="bg-stone-900 text-stone-400 py-8 text-center mt-12 no-print">
-        <p class="text-sm">© 2023 CafeLab Educación. Pasito a pasito se llega lejos.</p>
+        <p class="text-sm">© 2023 CafeLab Educación.</p>
     </footer>
 
-    <!-- LÓGICA JAVASCRIPT CON ENVÍO DE DATOS -->
-<!-- LÓGICA JAVASCRIPT FINAL -->
+    <!-- LÓGICA JAVASCRIPT -->
     <script>
-        // TU URL DE APPS SCRIPT (Asegúrate que sea la correcta)
+        // *** ASEGÚRATE DE QUE ESTA URL SEA LA DE TU NUEVA IMPLEMENTACIÓN ***
         const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby8RZ3TxQSm8yOsb3JtAT0EwKMQF3cehZnVqNSnPiN_ew3gyEknFD96CL2pvG575gm9zg/exec";
 
         const correctAnswers = {
-            q1: { ans: 'b', explain: 'Correcto: "Aumentar" significa sumar. Al precio (p) le sumamos 500.' },
-            q2: { ans: 'c', explain: 'Correcto: "El triple" significa multiplicar por 3. (3x).' },
-            q3: { ans: 'a', explain: 'Correcto: "Merma" es pérdida o resta. A la cosecha (c) le quitamos 10.' },
-            q4: { ans: 'c', explain: 'Correcto: "Repartir" es dividir. Ganancia (g) dividido 4.' },
-            q5: { ans: 'b', explain: 'Correcto: El paréntesis agrupa la suma (w+5) antes de duplicarla.' },
-            q6: { ans: 'a', explain: 'Correcto: Jerarquía de operaciones: primero multiplicamos 2x10=20, luego restamos 100-20=80.' },
-            q7: { ans: 'a', explain: 'Correcto: La coma separa las ideas. Primero "mitad de precio" (p/2), y aparte sumamos el impuesto (+t).' },
-            q8: { ans: 'a', explain: 'Correcto: Si 3 sacos cuestan 1500, dividimos 1500 entre 3 para saber el valor de uno. x=500.' },
-            q9: { ans: ['r+v=50', 'v+r=50', 'r + v = 50', 'v + r = 50'], explain: 'Correcto: La suma de las dos cantidades da el total.' },
-            q10: { ans: ['b', 'd'], explain: 'Correcto: Una ecuación suma cantidades (L+B=10) y la otra suma dinero (500L+200B=3800).' }
+            q1: { ans: 'b', explain: 'Correcto: "Aumentar" significa sumar. p + 500.' },
+            q2: { ans: 'c', explain: 'Correcto: "El triple" es multiplicar por 3. (3x).' },
+            q3: { ans: 'a', explain: 'Correcto: "Merma" es resta. c - 10.' },
+            q4: { ans: 'c', explain: 'Correcto: "Repartir" es dividir. g / 4.' },
+            q5: { ans: 'b', explain: 'Correcto: Agrupar la suma (w+5) antes de duplicar.' },
+            q6: { ans: 'a', explain: 'Correcto: Jerarquía: 2x10=20, luego 100-20=80.' },
+            q7: { ans: 'a', explain: 'Correcto: Separar: (p/2) + t.' },
+            q8: { ans: 'a', explain: 'Correcto: 1500 / 3 = 500.' },
+            q9: { ans: ['r+v=50', 'v+r=50'], explain: 'Correcto: Suma de cantidades.' },
+            q10: { ans: ['b', 'd'], explain: 'Correcto: Una ec. de cantidad y otra de dinero.' }
         };
 
         function calculateScore() {
             const nameInput = document.getElementById('studentName').value;
-            if (!nameInput.trim()) {
-                alert("⚠️ Por favor, escribe tu nombre antes de calificar.");
-                document.getElementById('studentName').focus();
+            const gradeInput = document.getElementById('studentGrade').value;
+
+            // Validación mejorada
+            if (!nameInput.trim() || !gradeInput.trim()) {
+                alert("⚠️ Por favor, escribe tu NOMBRE y tu GRADO antes de calificar.");
                 return;
             }
 
             const btn = document.querySelector('button[onclick="calculateScore()"]');
-            btn.innerHTML = "⏳ Enviando...";
+            btn.innerHTML = "⏳ Procesando...";
             btn.disabled = true;
 
             let score = 0;
             const form = document.getElementById('quizForm');
-            
-            // Objeto para guardar respuestas individuales
-            let respuestasSeparadas = {};
+            let respuestasRaw = {}; // Objeto para enviar al excel solo las letras
 
             // Limpiar feedback
             document.querySelectorAll('.feedback').forEach(el => {
@@ -441,16 +265,14 @@
                 const box = document.getElementById(qKey + '-box');
                 const feedbackDiv = box.querySelector('.feedback');
                 
-                let val = selected ? selected.value : "Sin responder";
-                let isCorrect = false;
+                let val = selected ? selected.value : "";
+                respuestasRaw[qKey] = val; // Guardamos solo la letra para el excel
 
+                let isCorrect = false;
                 if (selected && selected.value === correctAnswers[qKey].ans) {
                     isCorrect = true;
                     score++;
                 }
-
-                // Guardamos en el objeto: "respuesta (Estado)"
-                respuestasSeparadas[qKey] = `${val} (${isCorrect ? 'OK' : 'X'})`;
 
                 // Feedback Visual
                 box.classList.add('border-2', 'p-2', 'rounded');
@@ -468,18 +290,17 @@
 
             // --- EVALUAR Q9 ---
             const q9Input = document.getElementById('q9_input').value;
+            respuestasRaw['q9'] = q9Input;
+
             const q9Clean = q9Input.toLowerCase().replace(/\s/g, '');
             const q9Valid = correctAnswers.q9.ans.map(a => a.replace(/\s/g, ''));
             const q9Box = document.getElementById('q9-box');
             const q9Feedback = q9Box.querySelector('.feedback');
-            
             q9Box.classList.add('border-2', 'p-2', 'rounded');
             q9Feedback.classList.remove('hidden');
-            let isQ9Correct = false;
 
             if (q9Valid.includes(q9Clean)) {
                 score++;
-                isQ9Correct = true;
                 q9Box.classList.add('correct-answer');
                 q9Feedback.innerHTML = `✅ ${correctAnswers.q9.explain}`;
                 q9Feedback.classList.add('bg-green-100', 'text-green-800');
@@ -488,15 +309,15 @@
                 q9Feedback.innerHTML = `❌ Respuesta esperada: R + V = 50`;
                 q9Feedback.classList.add('bg-red-100', 'text-red-800');
             }
-            respuestasSeparadas['q9'] = `${q9Input} (${isQ9Correct ? 'OK' : 'X'})`;
 
             // --- EVALUAR Q10 ---
             const q10Selected = Array.from(form.querySelectorAll('input[name="q10"]:checked')).map(cb => cb.value);
+            respuestasRaw['q10'] = q10Selected.join(','); // Enviamos "b,d" para el excel
+
             const correctSet = correctAnswers.q10.ans;
             const isQ10Correct = q10Selected.length === 2 && q10Selected.every(val => correctSet.includes(val));
             const q10Box = document.getElementById('q10-box');
             const q10Feedback = q10Box.querySelector('.feedback');
-            
             q10Box.classList.add('border-2', 'p-2', 'rounded');
             q10Feedback.classList.remove('hidden');
 
@@ -507,12 +328,9 @@
                 q10Feedback.classList.add('bg-green-100', 'text-green-800');
             } else {
                 q10Box.classList.add('wrong-answer');
-                q10Feedback.innerHTML = `❌ Debes seleccionar las dos ecuaciones correctas.`;
+                q10Feedback.innerHTML = `❌ Selección incorrecta.`;
                 q10Feedback.classList.add('bg-red-100', 'text-red-800');
             }
-            // Guardamos las opciones separadas por coma
-            respuestasSeparadas['q10'] = `[${q10Selected.join(',')}] (${isQ10Correct ? 'OK' : 'X'})`;
-
 
             // --- MOSTRAR RESULTADOS LOCALES ---
             const resultsArea = document.getElementById('results-area');
@@ -521,42 +339,33 @@
             document.getElementById('res-score').textContent = score + " / 10";
             
             const msgEl = document.getElementById('res-msg');
-            if(score === 10) msgEl.textContent = "¡Perfecto! Enviando resultados...";
-            else if(score >= 7) msgEl.textContent = "¡Muy bien! Enviando resultados...";
-            else msgEl.textContent = "Sigue practicando. Enviando resultados...";
-
+            if(score === 10) msgEl.textContent = "¡Excelente!";
+            else msgEl.textContent = "Sigue practicando.";
             resultsArea.scrollIntoView({ behavior: 'smooth' });
 
-            // --- PREPARAR DATOS PARA ENVIAR (JSON PLANO) ---
+            // --- ENVIAR DATOS LIMPIOS AL BACKEND ---
             const dataToSend = JSON.stringify({
                 nombre: nameInput,
+                grado: gradeInput,
                 puntaje: score,
-                // Esparcimos las respuestas individuales
-                q1: respuestasSeparadas.q1,
-                q2: respuestasSeparadas.q2,
-                q3: respuestasSeparadas.q3,
-                q4: respuestasSeparadas.q4,
-                q5: respuestasSeparadas.q5,
-                q6: respuestasSeparadas.q6,
-                q7: respuestasSeparadas.q7,
-                q8: respuestasSeparadas.q8,
-                q9: respuestasSeparadas.q9,
-                q10: respuestasSeparadas.q10
+                // Esparcimos las respuestas raw
+                q1: respuestasRaw.q1, q2: respuestasRaw.q2, q3: respuestasRaw.q3, q4: respuestasRaw.q4,
+                q5: respuestasRaw.q5, q6: respuestasRaw.q6, q7: respuestasRaw.q7, q8: respuestasRaw.q8,
+                q9: respuestasRaw.q9, q10: respuestasRaw.q10
             });
 
-            // --- ENVIAR ---
             fetch(GOOGLE_SCRIPT_URL, {
                 method: "POST",
                 mode: "no-cors", 
                 headers: { "Content-Type": "application/json" },
                 body: dataToSend
             }).then(() => {
-                btn.innerHTML = "✅ Guardado Exitosamente";
-                alert(`¡Datos guardados!\nEstudiante: ${nameInput}\nPuntaje: ${score}/10`);
+                btn.innerHTML = "✅ Datos Guardados";
+                alert(`¡Examen enviado!\nEstudiante: ${nameInput}\nGrado: ${gradeInput}\nNota: ${score}/10`);
             }).catch(err => {
                 console.error("Error envío", err);
                 btn.innerHTML = "⚠️ Error de Red";
-                alert("Se calificó, pero hubo un error al guardar en la hoja de cálculo.");
+                alert("Se calificó, pero hubo un error al guardar en la nube.");
             });
         }
     </script>
